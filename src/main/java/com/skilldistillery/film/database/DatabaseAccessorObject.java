@@ -141,6 +141,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	// RETURNS A LIST OF FILMS BASED OFF OF A KEYWORD
 	@Override
 	public List<Film> findFilmByKeyword(String keyword) {
+		Film film;
 		List<Film> films = new ArrayList<>();
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
@@ -154,8 +155,15 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 			while (rs.next()) {
 				int filmId = rs.getInt("film.id");
-				Film film = findFilmById(filmId);
+				//VALIDATION:
+				if(filmId > 1000) {
+					film = findUserCreatedFilmById(filmId);
+				}
+				else {
+					film = findFilmById(filmId);
+				}
 				films.add(film);
+				System.out.println(film);
 			}
 			rs.close();
 			stmt.close();
