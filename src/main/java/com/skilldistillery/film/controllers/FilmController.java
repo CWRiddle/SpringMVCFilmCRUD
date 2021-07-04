@@ -12,12 +12,12 @@ public class FilmController {
 	public String index() {
 		return "WEB-INF/home.jsp";
 	}
-	
+
 	@RequestMapping("GetFilmData.do")
 	public ModelAndView findFilm(int filmId) {
 		ModelAndView mv = new ModelAndView();
 		//Don't forget to setView
 		return mv;
 	}
-	
+
 }
