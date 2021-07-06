@@ -13,8 +13,7 @@ public interface DatabaseAccessor {
   
   public Film createFilm(Film newFilm);
   public void deleteFilmsByTitle(String filmTitle);	//Alternative method
-  public void deleteFilmsById(List<Integer> filmIds);
   
-  public List<Integer> findFilmIdsByFilmName(String filmTitle);
-  public Film findUserCreatedFilmById(int filmId);
+  //public List<Integer> findFilmIdsByFilmName(String filmTitle);
+  public void deleteFilms(String title);
 }

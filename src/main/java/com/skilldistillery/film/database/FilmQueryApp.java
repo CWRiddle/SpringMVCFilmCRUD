@@ -97,15 +97,10 @@ public class FilmQueryApp {
 			System.out.print("Enter film ID: ");
 			int filmId = input.nextInt();
 			
-			//Checks to see if ID entered is one that belongs to original database
-			if(filmId < 1000) {
-				film = db.findFilmById(filmId);
-			}
-			//Calls different film ID entered is on
-			else
-				film = db.findUserCreatedFilmById(filmId);
+			film = db.findFilmById(filmId);
 			
-			//VALIDATION:
+	
+//			//VALIDATION:
 			if (film == null) {
 				System.out.println("No Film Found. Please try again.");
 			} 
@@ -126,7 +121,7 @@ public class FilmQueryApp {
 		keyword = input.next();
 		
 		//Finds films by keyword
-		films = db.findFilmByKeyword("%" + keyword + "%");
+		films = db.findFilmByKeyword(keyword);
 		
 		//VALIDATION:
 		if(films.size() == 0) {
@@ -192,15 +187,16 @@ public class FilmQueryApp {
 		//System.out.println(db.createFilm(newFilm).toString());
 	}
 	
-	private void deleteFilm(Scanner input) {
+		private void deleteFilm(Scanner input) {
 		
 		//USER INPUT:
 		System.out.print("Enter film title: ");
 		String title = input.next();
 		
 		//Populates a list of filmIds with any that match the title
-		List<Integer> filmIds = db.findFilmIdsByFilmName(title);
-		db.deleteFilmsById(filmIds);
+		//List<Integer> filmIds = db.findFilmIdsByFilmName(title);
+		//db.deleteFilmsById(filmIds);
+		db.deleteFilms(title);
 		
 		//DEBUG: Message that prints out all of the newly created film IDs
 //		for(Integer filmId : filmIds) {
