@@ -48,10 +48,15 @@
 <ul>
   <li>${film.title}</li>
   <li>${film.description}</li>
-  <li>${film.rating}</li>
-  <li>${film.category}</li>
-  <li>${film.cast}</li>
-  </ul>
+  <li>Release Year: ${film.releaseYear}</li>
+  <li>Language: ${film.language}</li>
+  <li>Rated: ${film.rating}</li>
+  <li>Category: ${film.category}</li>
+  <li>Cast: ${film.cast}</li>
+  <li>Special Features: ${film.specialFeatures}</li>
+  <li>Rental Rate: ${film.rentalRate}</li>
+  <li>Replacement Cost: ${film.replacementCost}</li>
+  </ul> 
   
   <form action="delete.do" method="GET">
   <input type="hidden" name="filmId" value="${film.id }"/> <input type="submit"
