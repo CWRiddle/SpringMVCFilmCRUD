@@ -49,6 +49,8 @@
   <li>${film.title}</li>
   <li>${film.description}</li>
   <li>${film.rating}</li>
+  <li>${film.category}</li>
+  <li>${film.cast}</li>
   </ul>
   
   <form action="delete.do" method="GET">
