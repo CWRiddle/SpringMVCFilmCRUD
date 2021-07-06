@@ -64,7 +64,7 @@
 			id="filmDesc" name="rentalRate" value="${film.rentalRate}"><br> <label
 			for="filmDesc">Replacement Cost</label><br> <input type="text"
 			id="filmDesc" name="replCost" value="${film.replacementCost }"><br>
-		<br> <input type="submit" value="Create Film">
+		<br> <input type="submit" value="Update Film">
 	</form>
 
 

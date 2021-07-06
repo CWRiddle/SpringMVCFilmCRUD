@@ -4,7 +4,7 @@
 <html>
 <head>
 
-!-- Required meta tags -->
+<!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap CSS -->
@@ -13,6 +13,8 @@
 	rel="stylesheet"
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
 	crossorigin="anonymous">
+
+
 <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css" />
 
 
