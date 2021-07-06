@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,13 +14,12 @@
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css" />
-<title>Film By ID</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body class="bg-dark">
 
-
-
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#">MVC Film</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
@@ -38,10 +39,27 @@
 		</div>
 	</nav>
 
-	<h3>Find Film By ID</h3>
-	<form action="GetFilmData.do" method="GET">
-		Film ID: <input type="text" name="filmId" /> <input type="submit"
-			value="Get Film" />
+
+
+
+
+
+<c:forEach items="${films}" var="film">
+<ul>
+  <li>${film.title}</li>
+  <li>${film.description}</li>
+  <li>${film.rating}</li>
+  </ul>
+  
+  <form action="delete.do" method="GET">
+  <input type="hidden" name="filmId" value="${film.id }"/> <input type="submit"
+			value="Delete Film" />
 	</form>
+	
+  <form action="editView.do" method="GET">
+  <input type="hidden" name="filmId" value="${film.id }"/> <input type="submit"
+			value="Edit Film" />
+	</form>
+</c:forEach>
 </body>
 </html>

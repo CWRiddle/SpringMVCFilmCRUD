@@ -43,8 +43,8 @@ public class Film {
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
 		this.cast = cast;
-		this.language = language;
-		this.category=category;
+		this.setLanguage(language);
+		this.setCategory(category);
 		//toStringFormatHelper();
 	}
 
@@ -226,6 +226,22 @@ public class Film {
 		} else if (!title.equals(other.title))
 			return false;
 		return true;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 }

@@ -226,7 +226,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	///////////////////////////////////////////
 	// RETUNS A LIST OF FILM IDs GIVEN A TITLE
-	private List<Integer> findFilmIdsByFilmName(String filmTitle) {
+	public List<Integer> findFilmIdsByFilmName(String filmTitle) {
 		List<Integer> filmIds = new ArrayList<>();
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
@@ -258,8 +258,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	///////////////////////////////////////////////////////////////////////////
 	// CREATES AND RETURNS A NEW FILM IN THE FILM DATABASE GIVEN A FILM OBJECT
 	@Override
-	public Film createFilm(Film newFilm) {
-		try {
+	public Film createFilm(Film newFilm) throws SQLException{
+		//try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
 
 			String sql = "INSERT INTO film (film.title, film.description, film.release_year, film.language_id, "
@@ -286,14 +286,14 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 			// Sets newly created film's ID field to the ID in the Database
 			if (key.next()) {
-				newFilm.setId(1);
+				newFilm.setId(key.getInt(1));
 				return newFilm;
 			}
 			stmt.close();
 			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 		return null;
 	}
 
@@ -378,4 +378,36 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		// return null;
 	}
 
+	
+	public void updateFilm(Film film) throws SQLException{
+		//try {
+			Connection conn = DriverManager.getConnection(URL, user, pass);
+
+			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id = ?, rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ?, special_features = ? WHERE film.id = ?";
+
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+			stmt.setString(1, film.getTitle());
+			stmt.setString(2, film.getDescription());
+			stmt.setInt(3, film.getReleaseYear());
+			stmt.setInt(4, film.getLanguageId());
+			stmt.setInt(5, film.getRentalDuration());
+			stmt.setDouble(6, film.getRentalRate());
+			stmt.setInt(7, film.getLength());
+			stmt.setDouble(8, film.getReplacementCost());
+			stmt.setString(9, film.getRating());
+			stmt.setString(10, film.getSpecialFeatures());
+			stmt.setInt(11, film.getId());
+
+			int uc = stmt.executeUpdate();
+
+			System.out.println(uc + " row from film updated.");
+
+			// rs.close();
+			stmt.close();
+			conn.close();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+	}
 }

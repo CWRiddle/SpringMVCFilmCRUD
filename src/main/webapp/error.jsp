@@ -1,7 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,13 +13,12 @@
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css" />
-<title>Film By ID</title>
+<meta charset="UTF-8">
+<title>Uh Oh!</title>
 </head>
 <body class="bg-dark">
 
-
-
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#">MVC Film</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
@@ -38,10 +38,8 @@
 		</div>
 	</nav>
 
-	<h3>Find Film By ID</h3>
-	<form action="GetFilmData.do" method="GET">
-		Film ID: <input type="text" name="filmId" /> <input type="submit"
-			value="Get Film" />
-	</form>
+
+
+<p>Action can not be performed.</p>
 </body>
 </html>
